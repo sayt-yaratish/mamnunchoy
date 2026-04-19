@@ -12,13 +12,12 @@ function changeQty(name, price, delta) {
   }
 
   document.getElementById("qty-" + name).innerText = cart[name]?.qty || 0;
+
   renderCart();
 }
 
 function renderCart() {
-  let text = "";
   let total = 0;
-
   let arr = [];
 
   for (let item in cart) {
@@ -29,9 +28,9 @@ function renderCart() {
     arr.push(`${q} x ${item}`);
   }
 
-  text = arr.join("\n");
+  document.getElementById("cartText").innerText =
+    arr.join("\n") || "Пусто";
 
-  document.getElementById("cartText").innerText = text || "Пусто";
   document.getElementById("total").innerText =
     total.toLocaleString('ru-RU') + " сум";
 }
@@ -52,18 +51,18 @@ function sendOrder() {
   let waiter = document.getElementById("waiter").value;
   let table = document.getElementById("table").value;
 
-  let orderArr = [];
   let total = 0;
+  let arr = [];
 
   for (let item in cart) {
     let q = cart[item].qty;
     let p = cart[item].price;
 
     total += q * p;
-    orderArr.push(`${q} x ${item}`);
+    arr.push(`${q} x ${item}`);
   }
 
-  let orderText = orderArr.join("\n");
+  let orderText = arr.join("\n");
   let formattedTotal = total.toLocaleString('ru-RU');
 
   let message =
@@ -76,7 +75,6 @@ ${orderText}
 
 ИТОГО: ${formattedTotal} сум`;
 
-  // TELEGRAM
   fetch("https://api.telegram.org/bot8442591217:AAEKM7snFpqnPahqIb92YxuZ7VHyRsf17fM/sendMessage", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -86,7 +84,6 @@ ${orderText}
     })
   });
 
-  // GOOGLE SHEETS
   fetch("https://script.google.com/macros/s/AKfycby5c1WRgdWgBq_bE-2CMNU9jGOKf2ghjOl-MlsjNnGIhvMym7TQL0L8Pl53IgtpbCxifg/exec", {
     method: "POST",
     body: new URLSearchParams({
