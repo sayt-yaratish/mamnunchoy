@@ -1,75 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Mamnun Choy</title>
-<link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Mamnun Choy</title>
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
-<div class="banner"></div>
-<div class="container">
-<div class="selects">
-  <select id="waiter">
-    <option>Обслуживал: Ali</option>
-    <option>Обслуживал: Abdulaziz</option>
-    <option>Обслуживал: Bekzod</option>
-  </select>
-  <select id="table">
-    <option>Столик 1№</option>
-    <option>Столик 2№</option>
-    <option>Столик 3№</option>
-    <option>Столик 4№</option>
-    <option>Столик 5№</option>
-  </select>
-</div>
-<div class="grid">
-  <!-- ЧАЙ -->
-  <div class="card">
-    <img src="index.img/image 3.png">
-    <h3>Чай</h3>
-    <p>5 000 сум</p>
-    <div class="controls">
-      <button class="minus" onclick="changeQty('Чай',5000,-1)">−</button>
-      <span id="qty-Чай">0</span>
-      <button class="plus" onclick="changeQty('Чай',5000,1)">+</button>
-    </div>
-  </div>
-  <!-- БУРГЕР -->
-  <div class="card">
-    <img src="index.img/image 6.png">
-    <h3>Бургер</h3>
-    <p>30 000 сум</p>
-    <div class="controls">
-      <button class="minus" onclick="changeQty('Бургер',30000,-1)">−</button>
-      <span id="qty-Бургер">0</span>
-      <button class="plus" onclick="changeQty('Бургер',30000,1)">+</button>
-    </div>
-  </div>
-  <!-- ПАХЛАВА -->
-  <div class="card">
-    <img src="index.img/image 4.png">
-    <h3>Пахлава</h3>
-    <p>15 000 сум</p>
-    <div class="controls">
-      <button class="minus" onclick="changeQty('Пахлава',15000,-1)">−</button>
-      <span id="qty-Пахлава">0</span>
-      <button class="plus" onclick="changeQty('Пахлава',15000,1)">+</button>
-    </div>
-  </div>
-</div>
-<div class="cart">
-  <h3>Корзина:</h3>
-  <pre id="cartText"></pre>
-  <h3 id="total">0 сум</h3>
 
-  <div class="btns">
-    <button class="red" onclick="clearCart()">Очистить</button>
-    <button class="green" onclick="sendOrder()">Отправить</button>
+<body>
+
+<div class="banner"></div>
+
+<div class="container">
+
+  <div class="selects">
+    <select id="waiter">
+      <option>Ali</option>
+      <option>Bekzod</option>
+    </select>
+
+    <select id="table">
+      <option>Стол 1</option>
+      <option>Стол 2</option>
+    </select>
   </div>
+
+  <div class="grid">
+
+    <!-- ЧАЙ -->
+    <div class="card">
+      <img src="index.img/image 3.png">
+      <h3>Чай</h3>
+      <p>5 000 сум</p>
+
+      <div class="controls">
+        <button onclick="changeQty('Чай',5000,-1)">-</button>
+        <span id="qty-Чай">0</span>
+        <button onclick="changeQty('Чай',5000,1)">+</button>
+      </div>
+    </div>
+
+    <!-- БУРГЕР -->
+    <div class="card">
+      <img src="index.img/image 6.png">
+      <h3>Бургер</h3>
+      <p>30 000 сум</p>
+
+      <div class="controls">
+        <button onclick="changeQty('Бургер',30000,-1)">-</button>
+        <span id="qty-Бургер">0</span>
+        <button onclick="changeQty('Бургер',30000,1)">+</button>
+      </div>
+    </div>
+
+    <!-- ПАХЛАВА -->
+    <div class="card">
+      <img src="index.img/image 4.png">
+      <h3>Пахлава</h3>
+      <p>15 000 сум</p>
+
+      <div class="controls">
+        <button onclick="changeQty('Пахлава',15000,-1)">-</button>
+        <span id="qty-Пахлава">0</span>
+        <button onclick="changeQty('Пахлава',15000,1)">+</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cart">
+    <h3>Заказ:</h3>
+    <pre id="cartText">Пусто</pre>
+    <h3>Итого: <span id="total">0 сум</span></h3>
+
+    <div class="btns">
+      <button class="red" onclick="clearCart()">Очистить</button>
+      <button class="green" onclick="sendOrder()">Отправить</button>
+    </div>
+  </div>
+
 </div>
-</div>
+
 <script src="index.js"></script>
-<script src="guglshit.js"></script>
+
 </body>
 </html>
