@@ -3,6 +3,8 @@ body {
   font-family: Arial;
   background: #f5e6d3;
    touch-action: none;
+   overscroll-behavior: none;
+  touch-action: none;
 }
 
 /* 🔥 БАННЕР */
