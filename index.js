@@ -105,21 +105,36 @@ ${orderText}
         })
     });
 
-    document.addEventListener('touchstart', function (event) {
-  if (event.touches.length > 1) {
-    event.preventDefault();
-  }
-}, { passive: false });
+// ❌ УБИРАЕМ ВСЕ ЖЕСТЫ ЗУМА (iPhone Safari)
 
+document.addEventListener('gesturestart', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('gesturechange', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('gestureend', function (e) {
+  e.preventDefault();
+});
+
+// ❌ УБИРАЕМ двойной тап
 let lastTouchEnd = 0;
+
 document.addEventListener('touchend', function (event) {
   let now = new Date().getTime();
+
   if (now - lastTouchEnd <= 300) {
     event.preventDefault();
   }
+
   lastTouchEnd = now;
 }, false);
 
-    alert("Заказ отправлен ✅");
-    clearCart();
-}
+// ❌ УБИРАЕМ pinch zoom (2 пальца)
+document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) {
+    event.preventDefault();
+  }
+}, { passive: false });
