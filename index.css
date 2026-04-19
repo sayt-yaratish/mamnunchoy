@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: Arial;
   background: #f5e6d3;
+   touch-action: none;
 }
 
 /* 🔥 БАННЕР */
