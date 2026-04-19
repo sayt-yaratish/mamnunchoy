@@ -156,3 +156,9 @@ select {
   min-width: 30px;
   text-align: center;
 }
+button {
+  touch-action: manipulation;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+}
