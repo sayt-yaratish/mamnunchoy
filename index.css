@@ -6,6 +6,9 @@ body {
    overscroll-behavior: none;
   touch-action: none;
 }
+html {
+  touch-action: manipulation;
+}
 
 /* 🔥 БАННЕР */
 .banner {
