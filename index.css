@@ -112,23 +112,47 @@ select {
   border: none;
   border-radius: 5px;
 }
-.btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* ОБЩИЕ кнопки */
+.controls button {
+  width: 60px;
+  height: 60px;
   border: none;
-  font-size: 22px;
+  border-radius: 50%;
+  font-size: 28px;
   font-weight: bold;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+
+  /* УБИРАЕТ кривое поведение на телефонах */
+  line-height: 1;
+  padding: 0;
 }
 
-.btn-plus {
-  background: #28a745;
+/* ➖ */
+.minus {
+  background: #e74c3c;
 }
 
-.btn-minus {
-  background: #dc3545;
+/* ➕ */
+.plus {
+  background: #27ae60;
+}
+
+/* ЧИСЛО */
+.controls span {
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
 }
