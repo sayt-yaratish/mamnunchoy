@@ -138,3 +138,27 @@ document.addEventListener('touchmove', function (event) {
     event.preventDefault();
   }
 }, { passive: false });
+
+    // ❌ ПОЛНОЕ ОТКЛЮЧЕНИЕ ЗУМА НА iPhone
+
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('gesturechange', e => e.preventDefault());
+document.addEventListener('gestureend', e => e.preventDefault());
+
+// ❌ двойной тап
+let lastTouchEnd = 0;
+
+document.addEventListener('touchend', function (event) {
+  let now = new Date().getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+
+// ❌ pinch zoom (2 пальца)
+document.addEventListener('touchmove', function (event) {
+  if (event.touches.length > 1) {
+    event.preventDefault();
+  }
+}, { passive: false });
